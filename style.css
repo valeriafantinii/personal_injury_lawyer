@@ -122,6 +122,7 @@ img {
   justify-content: space-between;
   gap: 24px;
   padding: 16px 0;
+  position: relative;
 }
 
 .brand {
@@ -132,23 +133,6 @@ img {
 
 .brand__logo {
   width: 240px;
-}
-
-.nav {
-  position: relative;
-}
-
-.nav--open .nav__list {
-  display: flex;
-  flex-direction: column;
-  background: #fff;
-  position: absolute;
-  top: 100%;
-  right: 0;
-  width: 220px;
-  padding: 20px;
-  gap: 16px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
 }
 
 .nav__list {
@@ -455,6 +439,35 @@ img {
 
   .nav__list {
     display: none;
+  }
+
+  .nav.nav--open .nav__list {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 16px;
+    width: min(260x, calc(100vw - 32px));
+    margin: 0;
+    padding: 14px;
+    gap: 10px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+    z-index: 50;
+  }
+
+  .nav.nav--open .nav__link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 12px;
+    border-radius: 8px;
+  }
+
+  .nav.nav--open .nav__link:hover {
+    background: rgba(0, 0, 0, 0.06);
+    text-decoration: none;
   }
 
   .nav-toggle {
