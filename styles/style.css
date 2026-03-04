@@ -231,7 +231,7 @@ img {
 
 .hero {
   position: relative;
-  background-image: url("/public/hero-desktop.png");
+  background-image: url("../public/hero-desktop.png");
   background-size: cover;
   background-position: center;
   padding: 56px 0 0;
@@ -525,7 +525,7 @@ img {
   .hero {
     padding: 34px 0 24px;
     background-position: center top;
-    background-image: url("/public/hero-mobile.jpg");
+    background-image: url("../public/hero-mobile.jpg");
   }
 
   .hero__inner {
