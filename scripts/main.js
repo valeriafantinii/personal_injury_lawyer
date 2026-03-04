@@ -1,5 +1,43 @@
 const nav = document.getElementById("primary-navigation");
 const toggle = document.querySelector(".nav-toggle");
+const triggers = document.querySelectorAll(".nav__trigger");
+
+const closeAllSubmenus = () => {
+  triggers.forEach((btn) => {
+    const item = btn.closest(".has-menu");
+    if (!item) return;
+
+    item.classList.remove("is-open");
+    btn.setAttribute("aria-expanded", "false");
+  });
+};
+
+triggers.forEach((btn) => {
+  btn.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    const item = btn.closest(".has-menu");
+    if (!item) return;
+
+    const isOpen = item.classList.contains("is-open");
+
+    closeAllSubmenus();
+
+    if (!isOpen) {
+      item.classList.add("is-open");
+      btn.setAttribute("aria-expanded", "true");
+    }
+  });
+});
+
+document.addEventListener("click", (e) => {
+  const clickedInsideMenu = e.target.closest(".has-menu");
+  if (!clickedInsideMenu) closeAllSubmenus();
+});
+
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") closeAllSubmenus();
+});
 
 if (nav && toggle) {
   const closeMenu = () => {
