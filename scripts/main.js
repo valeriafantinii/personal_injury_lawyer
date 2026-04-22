@@ -5,7 +5,7 @@ const triggers = document.querySelectorAll(".nav__trigger");
 const closeAllSubmenus = () => {
   triggers.forEach((btn) => {
     const item = btn.closest(".has-menu");
-    if (!item) return;
+        if (!item) return;
 
     item.classList.remove("is-open");
     btn.setAttribute("aria-expanded", "false");
